@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { apiCallBegan } from "./apiStatus";
-
+import { createSelector } from "reselect";
 const slice = createSlice({
   name: "weather",
   initialState: {
@@ -41,10 +41,18 @@ export default slice.reducer;
 export const loadWeather = () => (dispatch, getState) => {
     return dispatch(
     apiCallBegan({
-      //url,
+     // url,
       onStart: weatherRequested.type,
       onSuccess: weatherReceived.type,
       onError: weatherRequestFailed.type
     })
   );
 };
+
+
+//selector
+export const getWeather =()=>
+  createSelector(
+    state => state.entities.weather,
+    weather =>  weather.filter(g => g)
+  );

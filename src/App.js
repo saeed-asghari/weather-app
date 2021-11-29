@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import configureStore from "./store/configureStore";
-import { loadWeather} from "./store/weather";
-
+import { loadWeather,getWeather} from "./store/weather";
 const store = configureStore();
-
 // UI Layer
 store.dispatch(loadWeather());
+store.dispatch(getWeather());
+
 function App() {
   return (
     <div id="background-home-page">
