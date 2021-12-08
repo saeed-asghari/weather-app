@@ -51,8 +51,10 @@ export const loadWeather = () => (dispatch, getState) => {
 
 
 //selector
-export const getWeather =()=>
-  createSelector(
-    state => state.entities.weather,
-    weather =>  weather.filter(g => g)
-  );
+
+// export const getWeather =()=>
+//   createSelector(
+//     state => state.entities
+    
+//     //weather =>  weather.filter(g => g)
+//   );
