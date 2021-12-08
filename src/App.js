@@ -3,14 +3,14 @@ import "./App.css";
 
 import React, { useState, useEffect } from "react";
 import { loadProgressBar } from "axios-progress-bar";
-import TenDayForeCast from "./components/tenDayForecast";
+import FourDayForecast from "./components/fourdayforecast";
 
 
 function App() {
   return (
    
       <div id="background-home-page">
-          <TenDayForeCast />
+          <FourDayForecast />
       </div>
  
   );
