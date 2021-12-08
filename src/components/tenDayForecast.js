@@ -7,7 +7,7 @@ function TenDayForeCast() {
   if (getAllWeathers.loading == false) {
     var weathers = [];
     let i,
-      chunk = 4;
+      chunk = 8;
     for (i = 0; i < getAllWeathers.list.list.length; i += chunk) {
  
       weathers.push({DailyWeather :getAllWeathers.list.list.slice(i, i + chunk),Date:getAllWeathers.list.list[i].dt_txt});
@@ -19,6 +19,7 @@ function TenDayForeCast() {
     setIndexWeatherBox(e.target.getAttribute("data-index"));
     console.log(e.target.getAttribute("data-index")); //will log the index of the clicked item
   };
+  const getColonTimeFormtDate=date=>date.slice(0,10)
   //
   if (getAllWeathers.loading) {
     return <div>Loading</div>;
@@ -38,7 +39,7 @@ function TenDayForeCast() {
           {weathers.map((weather, index) => (
            
             <section key={index} data-index={index} onClick={handler}>
-               <div className="cardDescription">{weather.Date}</div>
+               <div className="cardDescription">{getColonTimeFormtDate(weather.Date)}</div>
               content
             </section>
           ))}
