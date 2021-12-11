@@ -77,7 +77,10 @@ section {
   border: 1px solid #d7dbdd;
   border-radius: 4px;
 }
-
+.iconWeekend{
+  width: 40px;
+  height: 40px;
+}
 @media screen and (max-width: 1500px) {
   section { flex-basis: calc(33.33% - 60px); }
 }

@@ -6,7 +6,7 @@ const slice = createSlice({
   initialState: {
     list: [],
     loading: false,
-    lastFetch: null
+    lastFetch: null,
   },
   reducers: {
     weatherRequested: (weather, action) => {
@@ -22,39 +22,34 @@ const slice = createSlice({
     weatherRequestFailed: (weather, action) => {
       weather.loading = false;
     },
-
-
-
-  }
+  },
 });
 
-export const {
-  weatherReceived,
-  weatherRequested,
-  weatherRequestFailed
-} = slice.actions;
+export const { weatherReceived, weatherRequested, weatherRequestFailed } =
+  slice.actions;
 export default slice.reducer;
 
 // Action Creators
 //const url = "/bugs";
 
 export const loadWeather = () => (dispatch, getState) => {
-    return dispatch(
+  return dispatch(
     apiCallBegan({
-     // url,
+      // url,
       onStart: weatherRequested.type,
       onSuccess: weatherReceived.type,
-      onError: weatherRequestFailed.type
+      onError: weatherRequestFailed.type,
     })
   );
 };
 
-
 //selector
+const selectWeather = (state) => state.entites.weather;
+export const getWeather = createSelector(
+  [selectWeather],
+  (weather) => {
+    return weather.filter((w) => w.status);
+  }
 
-// export const getWeather =()=>
-//   createSelector(
-//     state => state.entities
-    
-//     //weather =>  weather.filter(g => g)
-//   );
+  //weather =>  weather.filter(g => g)
+);
